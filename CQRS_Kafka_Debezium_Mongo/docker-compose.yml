@@ -1,0 +1,171 @@
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: NewsDB
+    ports:
+      - "55432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    command:
+      - postgres
+      - -c
+      - wal_level=logical
+
+  zookeeper:
+    image: debezium/zookeeper:2.5
+    container_name: zookeeper
+    restart: always
+    ports:
+      - "2181:2181"
+    volumes:
+      - zookeeper_data:/zookeeper/data
+      - zookeeper_log:/zookeeper/log
+
+  kafka:
+    image: debezium/kafka:2.5
+    container_name: kafka
+    restart: always
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_BROKER_ID: 1
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  connect:
+    image: debezium/connect:2.5
+    container_name: connect
+    restart: always
+    depends_on:
+      - kafka
+    ports:
+      - "8083:8083"
+    environment:
+      BOOTSTRAP_SERVERS: kafka:9092
+      GROUP_ID: 1
+      CONFIG_STORAGE_TOPIC: my_connect_configs
+      OFFSET_STORAGE_TOPIC: my_connect_offsets
+      STATUS_STORAGE_TOPIC: my_connect_statuses
+      CONFIG_STORAGE_REPLICATION_FACTOR: 1
+      OFFSET_STORAGE_REPLICATION_FACTOR: 1
+      STATUS_STORAGE_REPLICATION_FACTOR: 1
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    restart: always
+    ports:
+      - "8090:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+
+  debezium-ui:
+    image: debezium/debezium-ui:2.5
+    container_name: debezium-ui
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_CONNECT_URIS: http://connect:8083
+
+  mongo:
+    image: mongo:7
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: NewsReadDB
+    volumes:
+      - mongo_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+  mongo-express:
+    image: mongo-express:1.0.2
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      ME_CONFIG_MONGODB_AUTH_DATABASE: admin
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_BASICAUTH_USERNAME: root
+      ME_CONFIG_BASICAUTH_PASSWORD: password
+
+  gateway-api:
+    container_name: gateway-api
+    restart: always
+    build:
+      context: .
+      dockerfile: src/Gateway.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:80
+    ports:
+      - "5500:80"
+
+  write-api:
+    container_name: write-api
+    restart: always
+    build:
+      context: .
+      dockerfile: src/Write.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:80
+    ports:
+      - "5501:80"
+
+  read-api:
+    container_name: read-api
+    restart: always
+    build:
+      context: .
+      dockerfile: src/Read.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:80
+      MongoDbSettings__ConnectionString: mongodb://root:password@mongo:27017/?authSource=admin
+      MongoDbSettings__DatabaseName: NewsReadDB
+    ports:
+      - "5502:80"
+
+  data-sync-consumer:
+    container_name: data-sync-consumer
+    restart: always
+    build:
+      context: .
+      dockerfile: src/Consumers.Data.Sync/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      # Kafka Ayarları (appsettings.json'daki hiyerarşiyi ezer)
+      - KafkaSettings__Host=kafka:9092
+      - KafkaSettings__TopicName=data.public.News
+      - KafkaSettings__GroupId=news-sync-consumer-group
+      # MongoDB Ayarları
+      - MongoDbSettings__ConnectionString=mongodb://root:password@mongo:27017
+      - MongoDbSettings__DatabaseName=NewsReadDB
+    depends_on:
+      - kafka
+      - mongo
+
+
+
+volumes:
+  pgdata:
+  zookeeper_data:
+  zookeeper_log:
+  kafka_data:
+  mongo_data:
