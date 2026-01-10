@@ -1,0 +1,29 @@
+@model List<Note> 
+
+<a asp-action="Create" class="btn btn-primary" >Create New Note</a>
+
+<h2>Notes</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Last Modified</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var note in Model)
+        {
+            <tr>
+                <td>@note.Id</td>
+                <td><a asp-action="Details" asp-route-id="@note.Id">@note.Title </a></td>
+                <td>@note.Content</td>
+                <td>@note.UpdatedAt.ToString("g")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@note.Id" class="btn btn-sm btn-warning">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
