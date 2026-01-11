@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZEIe4NQ2jJY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\gokka\\Desktop\\.Net_Workspace\\Onion_DDD_CQRS_WebAPI\\Presentation\\HepsiApi.Api\\HepsiApi.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gokka\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.1\\microsoft.aspnetcore.openapi.10.0.1.nupkg.sha512",
+    "C:\\Users\\gokka\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
