@@ -1,3 +1,7 @@
+Proje: Temel Fonksiyonları ile Hepsiburada Geliştirmek
+
+---
+
 # Onion Arhitecture Nedir?
 
 **Onion Architecture**, yazılım geliştirme sürecinde katmanlı bir mimari modeldir ve uygulamanın bağımlılıklarını yönetmek için kullanılır. Bu mimari model, uygulamanın çekirdek iş mantığını (domain) dış katmanlardan izole ederek, bağımlılıkların tersine çevrilmesini sağlar.

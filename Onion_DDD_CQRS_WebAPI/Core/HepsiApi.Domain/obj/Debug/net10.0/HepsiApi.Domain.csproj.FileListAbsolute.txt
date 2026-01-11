@@ -1,0 +1,12 @@
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Core\HepsiApi.Domain\obj\Debug\net10.0\HepsiApi.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Core\HepsiApi.Domain\obj\Debug\net10.0\HepsiApi.Domain.AssemblyInfoInputs.cache
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Core\HepsiApi.Domain\obj\Debug\net10.0\HepsiApi.Domain.AssemblyInfo.cs
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Core\HepsiApi.Domain\obj\Debug\net10.0\HepsiApi.Domain.csproj.CoreCompileInputs.cache
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Core\HepsiApi.Domain\obj\Debug\net10.0\HepsiApi.Domain.sourcelink.json
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Core\HepsiApi.Domain\bin\Debug\net10.0\HepsiApi.Domain.deps.json
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Core\HepsiApi.Domain\bin\Debug\net10.0\HepsiApi.Domain.dll
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Core\HepsiApi.Domain\bin\Debug\net10.0\HepsiApi.Domain.pdb
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Core\HepsiApi.Domain\obj\Debug\net10.0\HepsiApi.Domain.dll
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Core\HepsiApi.Domain\obj\Debug\net10.0\refint\HepsiApi.Domain.dll
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Core\HepsiApi.Domain\obj\Debug\net10.0\HepsiApi.Domain.pdb
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Core\HepsiApi.Domain\obj\Debug\net10.0\ref\HepsiApi.Domain.dll
