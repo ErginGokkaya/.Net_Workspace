@@ -8,13 +8,11 @@ namespace HepsiApi.Domain.Entities
         {
         }
 
-        public Brand(string name, string description)
+        public Brand(string name)
         {
             Name = name;
-            Description = description;
         }
 
         public required string Name { get; set; }
-        public required string Description { get; set; }
     }
 }

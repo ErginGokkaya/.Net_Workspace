@@ -1,0 +1,6 @@
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Infrastructure\HepsiApi.Persistence\obj\Debug\net10.0\HepsiApi.Persistence.csproj.AssemblyReference.cache
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Infrastructure\HepsiApi.Persistence\obj\Debug\net10.0\HepsiApi.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Infrastructure\HepsiApi.Persistence\obj\Debug\net10.0\HepsiApi.Persistence.AssemblyInfoInputs.cache
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Infrastructure\HepsiApi.Persistence\obj\Debug\net10.0\HepsiApi.Persistence.AssemblyInfo.cs
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Infrastructure\HepsiApi.Persistence\obj\Debug\net10.0\HepsiApi.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\gokka\Desktop\.Net_Workspace\Onion_DDD_CQRS_WebAPI\Infrastructure\HepsiApi.Persistence\obj\Debug\net10.0\HepsiApi.Persistence.sourcelink.json

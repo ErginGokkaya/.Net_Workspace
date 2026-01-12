@@ -9,6 +9,14 @@ namespace HepsiApi.Domain.Entities
         public Product()
         {
         }
+        public Product(string title, string description, int brandId, decimal price, decimal discounted)
+        {
+            Title = title;
+            Description = description;
+            BrandId = brandId;
+            Price = price;
+            Discounted = discounted;
+        }
 
         public required string Title { get; set; }
         public required string Description { get; set; }

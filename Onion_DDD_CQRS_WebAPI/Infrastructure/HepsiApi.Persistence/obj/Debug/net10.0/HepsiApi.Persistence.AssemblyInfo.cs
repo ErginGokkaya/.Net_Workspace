@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("HepsiApi.Api")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("HepsiApi.Persistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c2763f8bd1dddc9064a3e025cbb75529abee335")]
-[assembly: System.Reflection.AssemblyProductAttribute("HepsiApi.Api")]
-[assembly: System.Reflection.AssemblyTitleAttribute("HepsiApi.Api")]
+[assembly: System.Reflection.AssemblyProductAttribute("HepsiApi.Persistence")]
+[assembly: System.Reflection.AssemblyTitleAttribute("HepsiApi.Persistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // MSBuild WriteCodeFragment sınıfı tarafından oluşturuldu.
